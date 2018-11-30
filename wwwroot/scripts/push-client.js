@@ -2,7 +2,10 @@
 
 // setting up signalr connection
 (function () {
-	var connection = new signalR.HubConnectionBuilder().withUrl("/pushHub").build();
+	var connection = new signalR.HubConnectionBuilder()
+								.withUrl("/pushHub")
+								.withHubProtocol(new signalR.protocols.msgpack.MessagePackHubProtocol())
+								.build();
 
 	connection.on("NewPushMessage", function (message) {
 		var li = document.createElement("li");

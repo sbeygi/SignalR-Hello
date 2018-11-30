@@ -27,7 +27,7 @@ namespace SignalR_Hello
         {
 	        
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-	        services.AddSignalR();
+	        services.AddSignalR().AddMessagePackProtocol();
 
 	        services.AddHostedService<FakeOrderService>();
 		}
